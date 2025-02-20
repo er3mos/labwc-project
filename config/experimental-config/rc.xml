@@ -10,20 +10,15 @@
   <core>
     <decoration>server</decoration>
     <gap>0</gap>
-    <adaptiveSync>no</adaptiveSync>
-    <allowTearing>no</allowTearing>
+    <adaptiveSync>fullscreen</adaptiveSync>
+    <allowTearing>fullscreen</allowTearing>
     <autoEnableOutputs>yes</autoEnableOutputs>
-    <reuseOutputMode>no</reuseOutputMode>
+    <reuseOutputMode>yes</reuseOutputMode>
     <xwaylandPersistence>yes</xwaylandPersistence>
   </core>
 
   <placement>
-    <policy>cascade</policy>
-    <!--
-      When <placement><policy> is "cascade", the offset for cascading new
-      windows can be overwritten like this:
-      <cascadeOffset x="40" y="30" />
-    -->
+    <policy>automatic</policy>
   </placement>
 
   <!-- <font><theme> can be defined without an attribute to set all places -->
@@ -74,12 +69,12 @@
     Just as for window-rules, 'identifier' relates to app_id for native Wayland
     windows and WM_CLASS for XWayland clients.
   -->
-  <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
+  <windowSwitcher show="no" preview="no" outlines="yes" allWorkspaces="no">
     <fields>
-      <field content="type" width="25%" />
-      <field content="trimmed_identifier" width="25%" />
-      <!-- <field content="identifier" width="25%" /> -->
-      <field content="title" width="50%" />
+      <!--<field content="type" width="25%" />-->
+      <!--<field content="trimmed_identifier" width="25%" />-->
+      <!--<field content="identifier" width="25%" /> -->
+      <!--<field content="title" width="50%" />-->
     </fields>
   </windowSwitcher>
 
@@ -144,14 +139,14 @@
   </resize>
 
   <focus>
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <followMouseRequiresMovement>yes</followMouseRequiresMovement>
     <raiseOnFocus>no</raiseOnFocus>
   </focus>
 
   <snapping>
     <!-- Set range to 0 to disable window snapping completely -->
-    <range>1</range>
+    <range>3</range>
     <overlay enabled="yes">
       <delay inner="500" outer="500" />
     </overlay>
@@ -195,9 +190,8 @@
   -->
   <desktops>
     <popupTime>1000</popupTime>
-    <names>
-      <name>Default</name>
-    </names>
+    <number>5</number>
+    <prefix>ws</prefix>
   </desktops>
 
   <!--
@@ -212,7 +206,6 @@
   -->
 
   <!-- Percent based regions based on output usable area, % char is required -->
-  <!--
     <regions>
       <region name="top-left"     x="0%"  y="0%"  height="50%"  width="50%"  />
       <region name="top"          x="0%"  y="0%"  height="50%"  width="100%" />
@@ -224,7 +217,6 @@
       <region name="bottom"       x="0%"  y="50%" height="50%"  width="100%" />
       <region name="bottom-right" x="50%" y="50%" height="50%"  width="50%"  />
     </regions>
-  -->
 
   <!--
     Keybind actions are specified in labwc-actions(5)
@@ -254,11 +246,11 @@
     <keybind key="A-S-Tab">
       <action name="PreviousWindow" />
     </keybind>
-    <keybind key="W-Return">
-      <action name="Execute" command="alacritty" />
+    <keybind key="A-Return">
+      <action name="Execute" command="kitty" />
     </keybind>
-    <keybind key="A-F3">
-      <action name="Execute" command="bemenu-run" />
+    <keybind key="A-d">
+      <action name="Execute" command="rofi --show dmenu" />
     </keybind>
     <keybind key="A-F4">
       <action name="Close" />

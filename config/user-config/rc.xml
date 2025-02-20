@@ -10,20 +10,15 @@
   <core>
     <decoration>server</decoration>
     <gap>0</gap>
-    <adaptiveSync>no</adaptiveSync>
-    <allowTearing>no</allowTearing>
+    <adaptiveSync>fullscreen</adaptiveSync>
+    <allowTearing>fullscreen</allowTearing>
     <autoEnableOutputs>yes</autoEnableOutputs>
-    <reuseOutputMode>no</reuseOutputMode>
+    <reuseOutputMode>yes</reuseOutputMode>
     <xwaylandPersistence>yes</xwaylandPersistence>
   </core>
 
   <placement>
-    <policy>cascade</policy>
-    <!--
-      When <placement><policy> is "cascade", the offset for cascading new
-      windows can be overwritten like this:
-      <cascadeOffset x="40" y="30" />
-    -->
+    <policy>automatic</policy>
   </placement>
 
   <!-- <font><theme> can be defined without an attribute to set all places -->
@@ -74,12 +69,12 @@
     Just as for window-rules, 'identifier' relates to app_id for native Wayland
     windows and WM_CLASS for XWayland clients.
   -->
-  <windowSwitcher show="yes" preview="yes" outlines="yes" allWorkspaces="no">
+  <windowSwitcher show="no" preview="no" outlines="yes" allWorkspaces="yes">
     <fields>
-      <field content="type" width="25%" />
-      <field content="trimmed_identifier" width="25%" />
-      <!-- <field content="identifier" width="25%" /> -->
-      <field content="title" width="50%" />
+      <!--<field content="type" width="25%" />-->
+      <!--<field content="trimmed_identifier" width="25%" />-->
+      <!--<field content="identifier" width="25%" /> -->
+      <!--<field content="title" width="50%" />-->
     </fields>
   </windowSwitcher>
 
